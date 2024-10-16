@@ -77,6 +77,78 @@ export function HashMap()
         
     }
 
+    // for confirming if the buckets has the matched key
+    const has = (key) =>
+    {
+        const had = hash(key);
+        if(buckets[had] === key)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
 
+    // for removing the key in the buckets, return true if success
+
+    const remove = (key) =>
+    {
+        const index = hash(key);
+        if(!buckets[index])
+        {
+            return false
+        }
+        for(let i = 0; i< buckets.length; i++)
+        {
+            if(buckets[index][i].key === key)
+            {
+                buckets[index].splice(i,1);
+                return true;
+            }
+        }
+    }
+
+    // for counting total length of the keys the code has 
+    const length = (index) =>
+    {
+        if (!buckets[index])
+        {
+            return 0;
+        }
+        else
+        {
+           return buckets[index].length
+            
+        }
+    }
+
+    // for clearing all data inside the index(hash code)
+    const clear = (index) =>
+    {
+        if (!buckets[index])
+        {
+            return console.log("There is no Index being cleared");
+        }
+        else
+        {
+            buckets[index].splice(0,buckets[index].length);
+            return 0;
+        }
+
+    }
+    // for return an array contained inside buckets[index]
+    const keys = (index) =>
+    {
+        if(!buckets[index])
+        {
+            return [];
+        }
+        else
+        {
+            return buckets[index];
+        }
+    }
     
 }
