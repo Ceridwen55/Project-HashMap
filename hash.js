@@ -69,7 +69,7 @@ export function HashMap()
         {
             if(buckets[index][i].key === key)
             {
-                return console.log(buckets[index][i].value);
+                return buckets[index][i].value;
             }
         }
 
@@ -120,7 +120,7 @@ export function HashMap()
         }
         else
         {
-           return console.log(buckets[index].length);
+           return buckets[index].length;
             
         }
     }
@@ -148,7 +148,7 @@ export function HashMap()
         }
         else
         {
-            return console.log(buckets[index]);
+            return buckets[index];
         }
     }
 
@@ -161,7 +161,7 @@ export function HashMap()
             }
             else
             {
-                return console.log(buckets[index].value);
+                return buckets[index].value;
             }
     }
 
@@ -178,7 +178,7 @@ export function HashMap()
             {
                 result.push(buckets[index][i]);
             }
-            return console.log(result);
+            return result;
         }
     
         return {
