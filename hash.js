@@ -30,7 +30,7 @@ export function HashMap()
             buckets[index] = [];
         }
 
-        for (let i = 0; i < buckets.length; i++ )
+        for (let i = 0; i < buckets[index].length; i++ )
         {
             if(buckets[index][i].key === key) // this is using chaining menthod to avoid collision
             {
@@ -50,7 +50,8 @@ export function HashMap()
     const set = (key,value) =>
     {   
 
-        return saveKey (key,value) ;
+        saveKey (key,value);
+        return console.log("SET");
     
     };
 
@@ -68,7 +69,7 @@ export function HashMap()
         {
             if(buckets[index][i].key === key)
             {
-                return buckets[index][i].value
+                return console.log(buckets[index][i].value);
             }
         }
 
@@ -119,7 +120,7 @@ export function HashMap()
         }
         else
         {
-           return buckets[index].length
+           return console.log(buckets[index].length);
             
         }
     }
@@ -147,8 +148,49 @@ export function HashMap()
         }
         else
         {
-            return buckets[index];
+            return console.log(buckets[index]);
         }
     }
+
+    // for returning an array containing all values
+    const values = (index) =>
+    {
+        if(!buckets[index])
+            {
+                return [];
+            }
+            else
+            {
+                return console.log(buckets[index].value);
+            }
+    }
+
+    // for returning an array containining each key and value pair 
+    const  entries = (index) =>
+        {
+            if(!buckets[index])
+            {
+                return [];
+            }
+            let result = [];
+
+            for(let i = 0; i < buckets[index].length; i++)
+            {
+                result.push(buckets[index][i]);
+            }
+            return console.log(result);
+        }
+    
+        return {
+            set,
+            get,
+            has,
+            remove,
+            length,
+            clear,
+            keys,
+            values,
+            entries
+        };
     
 }
